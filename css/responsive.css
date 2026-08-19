@@ -1,0 +1,113 @@
+/* Mobile: < 768px */
+@media (max-width: 767px) {
+  .sidebar {
+    display: none;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 16px;
+    padding-bottom: 80px;
+  }
+
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    justify-content: space-around;
+    padding: 8px 0;
+    z-index: 100;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    padding: 4px 12px;
+  }
+
+  .mobile-nav-link.active {
+    color: var(--color-primary);
+  }
+
+  .mobile-nav-icon {
+    font-size: 1.25rem;
+  }
+
+  .timer-display {
+    font-size: 2.5rem;
+  }
+
+  .timer-controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .timer-controls .btn {
+    width: 100%;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .filter-row {
+    flex-direction: column;
+  }
+
+  .filter-row .form-group {
+    min-width: 100%;
+  }
+
+  .sessions-table th:nth-child(n+4),
+  .sessions-table td:nth-child(n+4) {
+    display: none;
+  }
+
+  .summary-stats {
+    gap: 24px;
+  }
+
+  .modal {
+    width: 95%;
+    padding: 16px;
+  }
+
+  .setting-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .toast-container {
+    bottom: 80px;
+    left: 16px;
+    right: 16px;
+  }
+}
+
+/* Tablet: 768px - 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .content {
+    padding: 24px;
+  }
+
+  .timer-display {
+    font-size: 3rem;
+  }
+}
+
+/* Desktop: > 1024px */
+@media (min-width: 1025px) {
+  .content {
+    padding: 32px 48px;
+  }
+}

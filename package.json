@@ -1,0 +1,18 @@
+{
+  "name": "timetrack",
+  "version": "1.0.0",
+  "description": "Application de suivi d'activités personnelles",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "vite-plugin-pwa": "^0.20.5"
+  },
+  "dependencies": {
+    "rollup": "npm:@rollup/wasm-node@^4.62.4"
+  }
+}

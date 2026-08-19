@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeTrack — Historique</title>
+  <meta name="description" content="Historique des sessions et export CSV.">
+  <meta name="theme-color" content="#2563EB">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1 class="app-title">TimeTrack</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="./" class="nav-link" data-page="dashboard">
+        <span class="nav-icon">⏱</span> Timer
+      </a></li>
+      <li><a href="history.html" class="nav-link active" data-page="history">
+        <span class="nav-icon">📋</span> Historique
+      </a></li>
+      <li><a href="settings.html" class="nav-link" data-page="settings">
+        <span class="nav-icon">⚙️</span> Paramètres
+      </a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+    <header class="page-header">
+      <h2>Historique</h2>
+    </header>
+
+    <!-- Barre de filtres -->
+    <section class="card filters">
+      <div class="filter-row">
+        <div class="form-group">
+          <input type="text" id="searchInput" placeholder="Rechercher une activité...">
+        </div>
+        <div class="form-group">
+          <input type="date" id="filterDateFrom" placeholder="Du">
+        </div>
+        <div class="form-group">
+          <input type="date" id="filterDateTo" placeholder="Au">
+        </div>
+        <button class="btn btn-ghost" id="btnResetFilters">Réinitialiser</button>
+      </div>
+    </section>
+
+    <!-- Liste des sessions -->
+    <section class="card">
+      <div class="table-container">
+        <table class="sessions-table" id="sessionsTable">
+          <thead>
+            <tr>
+              <th>Activité</th>
+              <th>Catégorie</th>
+              <th>Date</th>
+              <th>Début</th>
+              <th>Fin</th>
+              <th>Durée</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="sessionsBody">
+          </tbody>
+        </table>
+        <p class="empty-state" id="emptyState" style="display: none;">Aucune session enregistrée.</p>
+      </div>
+      <div class="table-footer">
+        <button class="btn btn-secondary" id="btnExportCSV">Exporter en CSV</button>
+      </div>
+    </section>
+
+    <!-- Modal de modification -->
+    <div class="modal-overlay" id="editModal" style="display: none;">
+      <div class="modal">
+        <h3>Modifier la session</h3>
+        <form id="editForm">
+          <input type="hidden" id="editSessionId">
+          <div class="form-group">
+            <label for="editActivityName">Activité *</label>
+            <input type="text" id="editActivityName" required maxlength="100">
+          </div>
+          <div class="form-group">
+            <label for="editCategory">Catégorie</label>
+            <div class="category-select-row">
+              <select id="editCategory">
+                <option value="">Aucune</option>
+              </select>
+              <button type="button" class="btn btn-secondary btn-add-category" data-add-category="editCategory" title="Ajouter une catégorie">+</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="editSessionDate">Date *</label>
+            <input type="date" id="editSessionDate" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="editStartTime">Heure de début *</label>
+              <input type="time" id="editStartTime" required>
+            </div>
+            <div class="form-group">
+              <label for="editEndTime">Heure de fin *</label>
+              <input type="time" id="editEndTime" required>
+            </div>
+          </div>
+          <div class="form-group duration-display">
+            <span>Durée : </span><strong id="editDuration">0 min</strong>
+          </div>
+          <div class="form-group">
+            <label for="editNotes">Notes</label>
+            <textarea id="editNotes" rows="3"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            <button type="button" class="btn btn-ghost" id="btnCloseEdit">Annuler</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Navigation mobile -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="./" class="mobile-nav-link" data-page="dashboard">
+      <span class="mobile-nav-icon">⏱</span>
+      <span>Timer</span>
+    </a>
+    <a href="history.html" class="mobile-nav-link active" data-page="history">
+      <span class="mobile-nav-icon">📋</span>
+      <span>Historique</span>
+    </a>
+    <a href="settings.html" class="mobile-nav-link" data-page="settings">
+      <span class="mobile-nav-icon">⚙️</span>
+      <span>Paramètres</span>
+    </a>
+  </nav>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script type="module" src="/js/utils.js"></script>
+  <script type="module" src="/js/db.js"></script>
+  <script type="module" src="/js/session.js"></script>
+  <script type="module" src="/js/export.js"></script>
+  <script type="module" src="/js/history.js"></script>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
