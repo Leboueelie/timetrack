@@ -88,6 +88,13 @@ body {
   font-size: 1.1rem;
 }
 
+.nav-icon svg,
+.mobile-nav-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
 .content {
   margin-left: var(--sidebar-width);
   flex: 1;

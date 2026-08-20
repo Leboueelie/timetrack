@@ -29,8 +29,8 @@ export function renderSessionsTable(sessions) {
       <td data-label="Fin">${session.endTime}</td>
       <td data-label="Durée">${formatDuration(session.durationMinutes)}</td>
       <td class="td-actions">
-        <button class="btn-icon btn-edit" data-id="${session.id}" title="Modifier">✏️</button>
-        <button class="btn-icon btn-delete" data-id="${session.id}" title="Supprimer">🗑️</button>
+        <button class="btn-icon btn-edit" data-id="${session.id}" title="Modifier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.83 2.83 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></button>
+        <button class="btn-icon btn-delete" data-id="${session.id}" title="Supprimer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg></button>
       </td>
     `;
     tbody.appendChild(tr);
