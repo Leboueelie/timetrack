@@ -22,13 +22,13 @@ export function renderSessionsTable(sessions) {
   sessions.forEach((session) => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>${escapeHTML(session.activityName)}</td>
-      <td>${session.category ? escapeHTML(session.category) : '—'}</td>
-      <td>${formatDate(session.date, settings.dateFormat)}</td>
-      <td>${session.startTime}</td>
-      <td>${session.endTime}</td>
-      <td>${formatDuration(session.durationMinutes)}</td>
-      <td>
+      <td data-label="Activité">${escapeHTML(session.activityName)}</td>
+      <td data-label="Catégorie">${session.category ? escapeHTML(session.category) : '—'}</td>
+      <td data-label="Date">${formatDate(session.date, settings.dateFormat)}</td>
+      <td data-label="Début">${session.startTime}</td>
+      <td data-label="Fin">${session.endTime}</td>
+      <td data-label="Durée">${formatDuration(session.durationMinutes)}</td>
+      <td class="td-actions">
         <button class="btn-icon btn-edit" data-id="${session.id}" title="Modifier">✏️</button>
         <button class="btn-icon btn-delete" data-id="${session.id}" title="Supprimer">🗑️</button>
       </td>
